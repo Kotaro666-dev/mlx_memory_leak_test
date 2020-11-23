@@ -1,4 +1,4 @@
-# The puroose
+# Purpose
 
 The purpose of this repository is to get to know how to deal with the memory allcation created by minilibx library.
 <br>
@@ -7,7 +7,6 @@ The purpose of this repository is to get to know how to deal with the memory all
 # TOOL to detect memroy leak
 
 Valgrind
-<br>
 <br>
 
 # Environment
@@ -49,7 +48,6 @@ This function is supposed to free mlx_ptr, which is allocated by the function "m
 <br>
 It seems that "mlx_destroy_display()" can free still-reachable memory, but brings the other memory leak "definetly lost"
 <br>
-<br>
 
 ## 1st Example with mlx_destroy_window()
 <br>
@@ -71,9 +69,6 @@ int main(int argc, char **argv)
 <br>
 
 **Valgrind detected definitely lost**
-
-<br>
-
 ```
 ==4665== HEAP SUMMARY:
 ==4665==     in use at exit: 120 bytes in 1 blocks
