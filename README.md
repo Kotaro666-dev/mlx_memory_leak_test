@@ -1,4 +1,4 @@
-# The puroose
+# Purpose
 
 The purpose of this repository is to get to know how to deal with the memory allcation created by minilibx library.
 <br>
@@ -8,19 +8,16 @@ The purpose of this repository is to get to know how to deal with the memory all
 
 Valgrind
 <br>
-<br>
 
 # Environment
 
 Virtual Machine and Linux, which are recommended tools by 42 Network
-<br>
 <br>
 
 # How to use
 
 1. make
 2. make valgrind
-<br>
 <br>
 
 # main.c
@@ -42,16 +39,14 @@ int main(int argc, char **argv)
 }
 ```
 <br>
-<br>
 
 # Issue
 
 Minilibx library for linux has a function called "mlx_destroy_display()".
 This function is supposed to free mlx_ptr, which is allocated by the function "mlx_init()".
 <br>
-"mlx_destroy_display()" can free still-reachable memory, but brings the other memory leak "definetly lost"
 <br>
-<br>
+It seems that "mlx_destroy_display()" can free still-reachable memory, but brings the other memory leak "definetly lost"
 <br>
 
 ## 1st Example with mlx_destroy_window()
@@ -72,10 +67,8 @@ int main(int argc, char **argv)
 }
 ```
 <br>
-**Valgrind detected definitely lost**
-<br>
-<br>
 
+**Valgrind detected definitely lost**
 ```
 ==4665== HEAP SUMMARY:
 ==4665==     in use at exit: 120 bytes in 1 blocks
@@ -140,7 +133,6 @@ int main(int argc, char **argv)
 ### What does stll reachable mean?
 >heap-allocated memory that was never freed to which the program still has a pointer at exit.
 
-<br>
 <br>
 
 ## 3rd example with mlx_destroy_window() and free()
